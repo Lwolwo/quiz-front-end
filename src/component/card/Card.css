@@ -10,6 +10,8 @@
 }
 
 img {
+  width:250px;
+  max-height: 250px;
   max-width: 250px;
   height: auto;
   overflow: hidden;
@@ -19,7 +21,7 @@ img {
   color: #000;
   font-size: 1.3em;
   font-weight: bold;
-  margin-left: 20px;
+  margin: 20px;
 }
 
 .price {

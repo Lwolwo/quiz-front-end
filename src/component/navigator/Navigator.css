@@ -13,11 +13,17 @@
   justify-content: center;
   align-items: center;
   color: #fff;
+  margin: 0 10px;
 }
 
-.navItem p {
+.navItem .text  {
   margin-left: 10px;
   margin-bottom: 0;
+  text-decoration: none;
+}
+
+.text {
+  color: #fff;
   text-decoration: none;
 }
 
@@ -33,13 +39,22 @@ a:visited {
 
 a:hover {
   color: #fff;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:active {
   color: #fff;
   text-decoration: none;
 }
+
+.text:hover {
+  text-decoration: none;
+}
+
+
+
+
+
 
 .isSelected {
   background: #1690ff;
