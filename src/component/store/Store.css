@@ -1,0 +1,10 @@
+.store {
+  margin: 50px;
+  background: #fff;
+}
+
+.products {
+  padding: 70px 50px;
+  display: flex;
+  flex-wrap: wrap;
+}

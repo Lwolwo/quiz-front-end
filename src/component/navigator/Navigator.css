@@ -1,0 +1,47 @@
+.navigator {
+  display: flex;
+  background-color: #001629;
+  height: 70px;
+  width: 100%;
+  padding-left: 50px;
+}
+
+.navItem {
+  height: 100%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.navItem p {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+a:link {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+.isSelected {
+  background: #1690ff;
+  text-decoration: none;
+
+}
