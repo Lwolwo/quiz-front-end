@@ -54,7 +54,8 @@ export default class AddProduct extends Component {
     }
   }
 
-  handleSubmit = async () => {
+  handleSubmit = async (event) => {
+    event.preventDefault();
     const { name, price, type, picUrl } = this.state;
 
     const data = {
@@ -72,20 +73,23 @@ export default class AddProduct extends Component {
       },
       body: JSON.stringify(data)
     }).then(response => {
-      if (response.status >= 200 && response.status <= 299) {
-        // this.setState({
-        //   show: true,
-        //   message: "添加商品成功！"
-        // })
+      if (response.status === 400) {
+        this.setState({
+          show: true,
+          message: "商品名称已存在，请输入新的商品名称"
+        })
+      }
+      if (response.status === 200) {
+        this.setState({
+          show: true,
+          message: "添加商品成功！",
+          name: "",
+          price: "",
+          type: "",
+          picUrl: "",
+        })
       }
     });
-
-    this.setState({
-      name: "",
-      price: "",
-      type: "",
-      picUrl: ""
-    })
   }
 
   render () {
@@ -93,7 +97,7 @@ export default class AddProduct extends Component {
     return (
       <div className="addProduct">
         <h1>添加商品</h1>
-        <form className="form" onSubmit={() => this.handleSubmit()}>
+        <form className="form" onSubmit={(e) => this.handleSubmit(e)}>
           <div className="formItem">
             <span className="must">* </span>
             <label htmlFor="name" className="form-label">名称：</label>
