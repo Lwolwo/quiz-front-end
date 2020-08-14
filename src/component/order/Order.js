@@ -9,6 +9,32 @@ export default class Order extends Component {
       data: []
     }
   }
+  
+  async componentDidMount() {
+    const result = await fetch('http://localhost:8080/order', {
+      method: 'GET',
+    }).then((response) => {
+      if (response.status >= 200 && response.status <= 299) {
+        return response.json()
+      }
+      return Promise.reject();
+    });
+    this.setState({
+      data: result
+    })
+  }
+
+  async handleDelete (id){
+    const result = await fetch('http://localhost:8080/order', {
+      method: 'delete',
+    }).then((response) => {
+      if (response.status >= 200 && response.status <= 299) {
+        return response.json()
+      }
+      return Promise.reject();
+    });
+  }
+
   render () {
     const {data} = this.state;
     return (
@@ -33,7 +59,7 @@ export default class Order extends Component {
                   <td>{item.price}</td>
                   <td>{item.quantity}</td>
                   <td>{item.type}</td>
-                  <td><button>删除</button></td>
+                  <td><button className="btn btn-danger" onClick={() => this.handleDelete(item.id)}>删除</button></td>
                 </tr>);
               })
             }
