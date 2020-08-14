@@ -3,6 +3,8 @@
 ## 1. 简介
 该仓库为Web Development Quiz的前端部分。
 
+注意：后台返回的图片保存在前端项目的asserts文件夹中。
+
 
 ## 2. 启动项目
 `npm start`
