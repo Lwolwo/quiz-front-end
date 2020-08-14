@@ -31,7 +31,7 @@ export default class Store extends Component {
         <div className="products">
           {
             products.map((item, index) =>
-              <Card key={index} name={item.name} price={item.price} type={item.type} picUrl={item.picUrl} />
+              <Card key={index} name={item.name} price={item.price} type={item.type} picUrl={item.picUrl} prodId={item.id} />
             )
           }
         </div>
