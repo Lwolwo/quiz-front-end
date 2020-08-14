@@ -1,69 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Web Development Quiz
 
-## Available Scripts
+## 1. 简介
+该仓库为Web Development Quiz的前端部分。
 
-In the project directory, you can run:
 
-### `npm start`
+## 1. 启动项目
+`npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-"# quiz-front-end" 
+## 2. Quiz需求
+1. 商城页面展示商品列表
+    * 进入商城页面，显示默认商品列表（需要自己完善商品信息）
+    * 点击添加按钮，添加商品到订单列表。添加请求还未返回时，添加按钮不可点击，添加成功后，可继续添加商品
+2. 订单页面显示商品订单列表
+    * 进入订单页，显示订单列表（订单信息见mockup）
+    * 无订单时，显示“暂无订单，返回商城页面继续购买”，点击“商城页面”返回到商城页
+3. 订单页面删除订单信息
+    * 进入订单页，点击删除按钮，删除订单。删除成功，订单页面删除订单记录。删除失败，弹框中提示“订单删除失败，请稍后再试”
+4. 添加商品页可添加新的商品
+    * 进入添加商品页，可输入商品名称、价格、商品单位以及商品图片链接，用于添加新的商品。点击“提交”按钮，创建商品。返回到商城页，可查看新创建的商品信息
+    * 字段均不能为空，价格为数字。若不满足格式，“提交”按钮不可点击
+    * 若商品名称已经存在，点击“提交”后，弹框中提示“商品名称已存在，请输入新的商品名称”
