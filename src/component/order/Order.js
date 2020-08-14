@@ -25,7 +25,7 @@ export default class Order extends Component {
   }
 
   async handleDelete (id){
-    const result = await fetch('http://localhost:8080/order', {
+    const result = await fetch(`http://localhost:8080/order/${id}`, {
       method: 'delete',
     }).then((response) => {
       if (response.status >= 200 && response.status <= 299) {
