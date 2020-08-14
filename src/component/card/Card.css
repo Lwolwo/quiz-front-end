@@ -44,5 +44,8 @@ img {
   position: absolute;
   bottom: 30px;
   right: 30px;
+}
 
+.button:focus {
+  outline: 0;
 }
