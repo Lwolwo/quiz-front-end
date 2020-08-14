@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import './Order.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Prompt from '../prompt/Prompt'
 
 export default class Order extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      message: "",
+      show: false
     }
   }
 
-  async componentDidMount () {
+  componentDidMount () {
+    this.fetchData();
+  }
+
+  async fetchData () {
     const result = await fetch('http://localhost:8080/order', {
-      method: 'GET',
+      method: 'get',
     }).then((response) => {
       if (response.status >= 200 && response.status <= 299) {
         return response.json()
@@ -25,22 +32,32 @@ export default class Order extends Component {
   }
 
   async handleDelete (id) {
-    const result = await fetch(`http://localhost:8080/order/${id}`, {
+    await fetch(`http://localhost:8080/order/${id}`, {
       method: 'delete',
     }).then((response) => {
+      console.log(response.status)
       if (response.status >= 200 && response.status <= 299) {
-        return response.json()
+        this.setState({
+          show: true,
+          message: "订单删除成功！"
+        });
+      } else {
+        this.setState({
+          show: true,
+          message: "订单删除失败，请稍后再试"
+        });
       }
-      return Promise.reject();
+      this.fetchData();
+
     });
   }
 
   render () {
-    const { data } = this.state;
+    const { data, show, message } = this.state;
     return (
       <div className="order">
         {
-          data.length === 0 ? <div class="noOrder">暂无订单，返回商城页面继续购买</div>
+          data.length === 0 ? <div className="noOrder">暂无订单，返回商城页面继续购买</div>
             :
             <table className="table table-hover">
               <thead className="thead-dark">
@@ -66,6 +83,12 @@ export default class Order extends Component {
                 }
               </tbody>
             </table>
+        }
+        {
+          show && <Prompt show={show} message={message} onHide={() => {
+            console.log("close")
+            this.setState({ show: false });
+          }} />
         }
       </div>
     )

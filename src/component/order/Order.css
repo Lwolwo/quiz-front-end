@@ -5,17 +5,14 @@
 
 }
 
-.table {
-}
-
-table {
-  width: 100%;
-}
-
 .noOrder {
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2em;
+}
+
+.button {
+  padding: 12px;
 }
