@@ -12,7 +12,8 @@ export default class AddProduct extends Component {
       type: "",
       picUrl: "",
       show: false,
-      message: ""
+      message: "",
+      isFinished: false
     }
   }
 
@@ -41,10 +42,19 @@ export default class AddProduct extends Component {
   }
 
   formIsFinished () {
-
+    const { name, price, type, picUrl } = this.state;
+    if (name !== "" && price !== "" && type !== "" && picUrl !== "") {
+      this.setState({
+        isFinished: true
+      })
+    } else {
+      this.setState({
+        isFinished: false
+      })
+    }
   }
 
-  handleSubmit = async () => {    
+  handleSubmit = async () => {
     const { name, price, type, picUrl } = this.state;
 
     const data = {
@@ -53,7 +63,7 @@ export default class AddProduct extends Component {
       type: type,
       picUrl: picUrl,
     }
-    
+
     await fetch("http://localhost:8080/product", {
       method: "POST",
       mode: 'cors',
@@ -63,10 +73,10 @@ export default class AddProduct extends Component {
       body: JSON.stringify(data)
     }).then(response => {
       if (response.status >= 200 && response.status <= 299) {
-        this.setState({
-          show: true,
-          message: "添加商品成功！"
-        })
+        // this.setState({
+        //   show: true,
+        //   message: "添加商品成功！"
+        // })
       }
     });
 
@@ -79,7 +89,7 @@ export default class AddProduct extends Component {
   }
 
   render () {
-    const { name, price, type, picUrl, show, message } = this.state;
+    const { name, price, type, picUrl, show, message, isFinished } = this.state;
     return (
       <div className="addProduct">
         <h1>添加商品</h1>
@@ -105,7 +115,7 @@ export default class AddProduct extends Component {
             <input type="text" className="form-control" placeholder="URL" value={picUrl} onChange={this.handlePicUrlChange} />
           </div>
           <div className="button formItem">
-            <button className="btn btn-primary" type="submit">提交</button>
+            <button className="btn btn-primary" type="submit" disabled={!isFinished}>提交</button>
           </div>
         </form>
         {
