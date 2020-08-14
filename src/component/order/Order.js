@@ -9,8 +9,8 @@ export default class Order extends Component {
       data: []
     }
   }
-  
-  async componentDidMount() {
+
+  async componentDidMount () {
     const result = await fetch('http://localhost:8080/order', {
       method: 'GET',
     }).then((response) => {
@@ -24,7 +24,7 @@ export default class Order extends Component {
     })
   }
 
-  async handleDelete (id){
+  async handleDelete (id) {
     const result = await fetch(`http://localhost:8080/order/${id}`, {
       method: 'delete',
     }).then((response) => {
@@ -36,35 +36,36 @@ export default class Order extends Component {
   }
 
   render () {
-    const {data} = this.state;
+    const { data } = this.state;
     return (
       <div className="order">
         {
           data.length === 0 ? <div class="noOrder">暂无订单，返回商城页面继续购买</div>
-          : <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">名字</th>
-              <th scope="col">单价</th>
-              <th scope="col">数量</th>
-              <th scope="col">单位</th>
-              <th scope="col">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              data.map((item, index) => {
-                return (<tr key={index}>
-                  <th scope="row">{item.name}</th>
-                  <td>{item.price}</td>
-                  <td>{item.quantity}</td>
-                  <td>{item.type}</td>
-                  <td><button className="btn btn-danger" onClick={() => this.handleDelete(item.id)}>删除</button></td>
-                </tr>);
-              })
-            }
-          </tbody>
-        </table>
+            :
+            <table className="table table-hover">
+              <thead className="thead-dark">
+                <tr>
+                  <th scope="col">名字</th>
+                  <th scope="col">单价</th>
+                  <th scope="col">数量</th>
+                  <th scope="col">单位</th>
+                  <th scope="col">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  data.map((item, index) => {
+                    return (<tr key={index}>
+                      <th scope="row">{item.name}</th>
+                      <td>{item.price}</td>
+                      <td>{item.quantity}</td>
+                      <td>{item.type}</td>
+                      <td><button className="btn btn-danger" onClick={() => this.handleDelete(item.id)}>删除</button></td>
+                    </tr>);
+                  })
+                }
+              </tbody>
+            </table>
         }
       </div>
     )

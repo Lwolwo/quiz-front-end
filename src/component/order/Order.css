@@ -1,3 +1,17 @@
+.order {
+  margin: 50px;
+  background: #fff;
+  padding: 50px 50px;
+
+}
+
+.table {
+}
+
+table {
+  width: 100%;
+}
+
 .noOrder {
   height: 200px;
   display: flex;
