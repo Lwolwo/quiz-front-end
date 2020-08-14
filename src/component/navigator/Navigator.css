@@ -6,7 +6,7 @@
   padding-left: 50px;
 }
 
-.navItem {
+.navigator .navItem {
   height: 100%;
   width: 100px;
   display: flex;
@@ -16,38 +16,38 @@
   margin: 0 10px;
 }
 
-.navItem .text  {
+.navigator .navItem .text  {
   margin-left: 10px;
   margin-bottom: 0;
   text-decoration: none;
 }
 
-.text {
+.navigator .text {
   color: #fff;
   text-decoration: none;
 }
 
-a:link {
+.navigator a:link {
   color: #fff;
   text-decoration: none;
 }
 
-a:visited {
+.navigator a:visited {
   color: #fff;
   text-decoration: none;
 }
 
-a:hover {
+.navigator a:hover {
   color: #fff;
   text-decoration: none !important;
 }
 
-a:active {
+.navigator a:active {
   color: #fff;
   text-decoration: none;
 }
 
-.text:hover {
+.navigator .text:hover {
   text-decoration: none;
 }
 

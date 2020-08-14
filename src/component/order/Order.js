@@ -35,7 +35,6 @@ export default class Order extends Component {
     await fetch(`http://localhost:8080/order/${id}`, {
       method: 'delete',
     }).then((response) => {
-      console.log(response.status)
       if (response.status >= 200 && response.status <= 299) {
         this.setState({
           show: true,
@@ -86,7 +85,6 @@ export default class Order extends Component {
         }
         {
           show && <Prompt show={show} message={message} onHide={() => {
-            console.log("close")
             this.setState({ show: false });
           }} />
         }

@@ -9,7 +9,7 @@
   position: relative;
 }
 
-img {
+.card img {
   width:250px;
   max-height: 250px;
   max-width: 250px;
@@ -17,20 +17,20 @@ img {
   overflow: hidden;
 }
 
-.name {
+.card .name {
   color: #000;
   font-size: 1.3em;
   font-weight: bold;
   margin: 20px;
 }
 
-.price {
+.card .price {
   margin-top: 0;
   margin-left: 20px;
   padding-bottom: 40px;
 }
 
-.button {
+.card .button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,6 +46,6 @@ img {
   right: 30px;
 }
 
-.button:focus {
+.card .button:focus {
   outline: 0;
 }

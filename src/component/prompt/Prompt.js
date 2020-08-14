@@ -6,7 +6,6 @@ import { Modal, Button } from 'react-bootstrap';
 export default class Prompt extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.show)
     this.state = {
       show: this.props.show
     };

@@ -1,9 +1,10 @@
 .store {
   margin: 50px;
   background: #fff;
+  min-height: 100vh;
 }
 
-.products {
+.store .products {
   padding: 70px 50px;
   display: flex;
   flex-wrap: wrap;

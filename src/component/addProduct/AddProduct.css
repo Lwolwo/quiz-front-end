@@ -2,14 +2,31 @@
   margin: 50px;
   background: #fff;
   padding: 50px;
+  min-height: 100vh;
+  width: 100%;
 }
 
 
-.form {
+.addProduct .form {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: left;
   
+}
+
+.addProduct .formItem {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.addProduct .must {
+  color: red;
+}
+
+.addProduct .button {
+  width: auto;
+  align-self: flex-start;
 }
